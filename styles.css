@@ -1,0 +1,143 @@
+body {
+  font-family: "Space Grotesk";
+  background-color: antiquewhite;
+  width: 100vw;
+  overflow: hidden;
+}
+.bg-img {
+  position: absolute;
+  z-index: -3;
+  height: 100vh;
+  width: 400px;
+}
+.card-front {
+  background-image: url("./images/bg-card-front.png");
+  width: 447px;
+  height: 245px;
+  position: relative;
+  top: 20%;
+  left: 5%;
+}
+.number,
+.name,
+.date {
+  position: relative;
+  color: white;
+}
+.number {
+  top: 10%;
+  left: 5%;
+  font-size: 25px;
+  letter-spacing: 4px;
+}
+.name {
+  left: 5%;
+  top: 5%;
+  font-size: 20px;
+  font-weight: 300;
+}
+.date {
+  top: 5%;
+  right: -9%;
+  font-size: 15px;
+  font-weight: 300;
+}
+.card-front-logo {
+  position: relative;
+  width: 100px;
+  height: 45px;
+  top: 5%;
+  left: 5%;
+}
+.card-back {
+  background-image: url("./images/bg-card-back.png");
+  width: 447px;
+  height: 245px;
+  position: relative;
+  top: 27%;
+  left: 20%;
+}
+.cvc {
+  position: relative;
+  top: 43%;
+  left: 80%;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+}
+.container1 {
+  display: inline;
+  width: 700px;
+}
+.form {
+  position: relative;
+  top: 25%;
+  left: 20%;
+}
+label {
+  display: block;
+  padding: 10px;
+}
+input {
+  margin: 0px 10px;
+  padding: 10px 7px;
+  border-radius: 10px;
+
+  background-color: antiquewhite;
+  border: solid;
+  border-color: hsl(279, 6%, 55%);
+}
+button {
+  margin: 30px 10px;
+  padding: 10px 150px;
+  border-radius: 10px;
+  background-color: hsl(278, 68%, 11%);
+  color: white;
+  border: none;
+}
+.name-input {
+  width: 400px;
+}
+.number-input {
+  width: 400px;
+}
+.date-input {
+  width: 60px;
+}
+.cvc-input {
+  width: 100px;
+}
+.cvc-input::-webkit-outer-spin-button,
+.cvc-input::-webkit-inner-spin-button {
+  display: none;
+}
+.hidden {
+  display: none;
+}
+p {
+  color: hsl(279, 6%, 55%);
+  display: block;
+  margin: 0px 130px;
+}
+.thank-page {
+  position: relative;
+  top: 20%;
+  left: 20%;
+}
+.tick{
+    margin: 100px 200px 30px;
+}
+h1{
+    margin: 15px 140px 10px;
+}
+.button2{
+    margin: 40px 60px;
+}
+
+
+.error-class{
+    border-color: hsl(0, 100%, 66%);
+}
+.error-class::-webkit-input-placeholder {
+    color: hsl(0, 100%, 66%);
+}
