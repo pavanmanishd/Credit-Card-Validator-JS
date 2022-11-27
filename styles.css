@@ -2,7 +2,7 @@ body {
   font-family: "Space Grotesk";
   background-color: antiquewhite;
   width: 100vw;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .bg-img {
   position: absolute;
@@ -133,8 +133,6 @@ h1{
 .button2{
     margin: 40px 60px;
 }
-
-
 .error-class{
     border-color: hsl(0, 100%, 66%);
 }

@@ -1,105 +1,105 @@
-var k = '';
-var t;
 var i = 0;
-var z;
-$(".number-input").on('keyup', function (e) {
-    t = Number($(".number-input").attr("maxlength"));
+var k = '';
+var t = 0;
+
+document.querySelector(".number-input").addEventListener('keyup', function (e) {
+    t = Number(document.querySelector(".number-input").getAttribute("maxlength"));
     t = t + 1;
     t = t.toString();
-    if (e.key == ' ') {
-        $(".number-input").attr("maxlength", t);
+    if (e.key === ' ') {
+        document.querySelector(".number-input").setAttribute("maxlength", t);
     }
-    // console.log("t"+t);
 });
-$(".name-input").on('keyup', function () {
+document.querySelector(".name-input").addEventListener('keyup', function () {
+    console.log(this.value);
     this.value = this.value.toUpperCase();
-    $(".cname").text($(".name-input").val());
-    if ($(this).val().length === 0) {
-        $(".cname").text("PAVAN MANISH");
+    document.querySelector(".cname").textContent = document.querySelector(".name-input").value;
+    if (this.value.length === 0) {
+        document.querySelector(".cname").textContent = "PAVAN MANISH";
     }
 });
-$(".number-input").on('keyup', function (e) {
+document.querySelector(".number-input").addEventListener('keyup', function (e) {
     var regex = new RegExp("^[a-z0-9]+$");
     var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
     if (regex.test(str) && k.length<16) {
         k = k.concat(e.key);
         for (let i = 1; i <= Math.ceil((k.length) / 4); i++) {
-            $(".card-no").eq(i - 1).text(k.slice(i * 4 - 4, i * 4));
+            document.querySelectorAll(".card-no")[i - 1].textContent = k.slice(i * 4 - 4, i * 4);
         }
     }
     else if (e.key === 'Backspace') {
         k = k.slice(0, -1);
     }
     
-    if ($(this).val().length === 0) {
-        $(".card-no").text("0000");
+    if (this.value.length === 0) {
+        document.querySelector(".card-no").textContent = "0000";
         k='';
     }
     console.log("k"+k.length);
 });
-$(".date-input").eq(0).on('keyup', function () {
-    $(".month").text($(".date-input").eq(0).val());
-    if ($(this).val().length === 0) {
-        $(".month").text("00");
+document.querySelectorAll(".date-input")[0].addEventListener('keyup', function () {
+    document.querySelector(".month").textContent = document.querySelectorAll(".date-input")[0].value;
+    if (this.value.length === 0) {
+        document.querySelector(".month").textContent = "00";
     }
 });
-$(".date-input").eq(1).on('keyup', function () {
-    $(".year").text($(".date-input").eq(1).val());
-    if ($(this).val().length === 0) {
-        $(".year").text("00");
+document.querySelectorAll(".date-input")[1].addEventListener('keyup', function () {
+    document.querySelector(".year").textContent = document.querySelectorAll(".date-input")[1].value;
+    if (this.value.length === 0) {
+        document.querySelector(".year").textContent = "00";
     }
 });
-$(".cvc-input").on('keyup', function () {
-    $(".cvc").text($(".cvc-input").val());
-    if ($(this).val().length === 0) {
-        $(".cvc").text("000");
+document.querySelector(".cvc-input").addEventListener('keyup', function () {
+    document.querySelector(".cvc").textContent = document.querySelector(".cvc-input").value;
+    if (this.value.length === 0) {
+        document.querySelector(".cvc").textContent = "000";
     }
 });
-$(".button1").on('click', function () {
+document.querySelector(".button1").addEventListener('click', function () {
     var w = 0;
     
     if(k.length<16){
-        $('.number-input').addClass("error-class");
+        document.querySelector('.number-input').classList.add("error-class");
     }
     else{
         w=w+1;
-        $('.number-input').removeClass("error-class");
+        document.querySelector('.number-input').classList.remove("error-class");
     }
-    if($('.name-input').val() === ''){
-        $('.name-input').addClass("error-class");
-    }
-    else{
-        w=w+1;
-        $('.name-input').removeClass("error-class");
-    }
-    if ($('.cvc-input').val() === '' || $('.cvc-input').val().length !== 3) {
-        $('.cvc-input').addClass("error-class");
+    if(document.querySelector('.name-input').value === ''){
+        document.querySelector('.name-input').classList.add("error-class");
     }
     else{
         w=w+1;
-        $('.cvc-input').removeClass("error-class");
+        document.querySelector('.name-input').classList.remove("error-class");
     }
-    if($('.d1').val() === ''){
-        $('.d1').addClass("error-class");
-    }
-    else{
-        w=w+1;
-        $('.d1').removeClass("error-class");
-    }
-    if($('.d2').val() === ''){
-        $('.d2').addClass("error-class");
+    if (document.querySelector('.cvc-input').value === '' || document.querySelector('.cvc-input').value.length !== 3) {
+        document.querySelector('.cvc-input').classList.add("error-class");
     }
     else{
         w=w+1;
-        $('.d2').removeClass("error-class");
+        document.querySelector('.cvc-input').classList.remove("error-class");
+    }
+    if(document.querySelector('.d1').value === ''){
+        document.querySelector('.d1').classList.add("error-class");
+    }
+    else{
+        w=w+1;
+        document.querySelector('.d1').classList.remove("error-class");
+    }
+    if(document.querySelector('.d2').value === ''){
+        document.querySelector('.d2').classList.add("error-class");
+    }
+    else{
+        w=w+1;
+        document.querySelector('.d2').classList.remove("error-class");
     }
     if(w === 5) {
-        $(".container2").addClass("hidden");
-        $(".container3").removeClass("hidden");
+        document.querySelector(".container2").classList.add("hidden");
+        document.querySelector(".container3").classList.remove("hidden");
     }
 });
-$(".button2").on('click', function () {
-    $(".container2").removeClass("hidden");
-    $(".container3").addClass("hidden");
+document.querySelector(".button2").addEventListener('click', function () {
+    document.querySelector(".container2").classList.remove("hidden");
+    document.querySelector(".container3").classList.add("hidden");
     location.reload();
 });
