@@ -1,22 +1,32 @@
-body {
+html{
   font-family: "Space Grotesk";
   background-color: antiquewhite;
   width: 100vw;
-  /* overflow: hidden; */
-}
-.bg-img {
-  position: absolute;
+  height: 100vh;
+  padding: 0px;
+  margin: 0px;
   z-index: -3;
+}
+body{
+  padding: 0%;
+  margin: 0%;
+}
+.bg-img1 {
+  position: absolute;
+  z-index: -1;
   height: 100vh;
   width: 400px;
+}
+.bg-img2{
+  position: absolute;
+  top: -100%;
 }
 .card-front {
   background-image: url("./images/bg-card-front.png");
   width: 447px;
   height: 245px;
-  position: relative;
-  top: 20%;
-  left: 5%;
+  z-index: 1;
+  align-self: flex-start;
 }
 .number,
 .name,
@@ -25,27 +35,26 @@ body {
   color: white;
 }
 .number {
-  top: 10%;
+  top: 35%;
   left: 5%;
   font-size: 25px;
   letter-spacing: 4px;
 }
 .name {
   left: 5%;
-  top: 5%;
+  top: 45%;
   font-size: 20px;
   font-weight: 300;
 }
 .date {
-  top: 5%;
-  right: -9%;
+  top: 36%;
+  left: 80%;
   font-size: 15px;
   font-weight: 300;
 }
 .card-front-logo {
   position: relative;
   width: 100px;
-  height: 45px;
   top: 5%;
   left: 5%;
 }
@@ -53,9 +62,7 @@ body {
   background-image: url("./images/bg-card-back.png");
   width: 447px;
   height: 245px;
-  position: relative;
-  top: 27%;
-  left: 20%;
+  align-self: flex-end;
 }
 .cvc {
   position: relative;
@@ -66,14 +73,15 @@ body {
   font-size: 20px;
 }
 .container1 {
-  display: inline;
-  width: 700px;
+  display: flex;
+  width: 600px;
+  padding: 0px;
+  height: 550px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 50px;
 }
-.form {
-  position: relative;
-  top: 25%;
-  left: 20%;
-}
+
 label {
   display: block;
   padding: 10px;
@@ -111,19 +119,18 @@ button {
 .cvc-input::-webkit-inner-spin-button {
   display: none;
 }
-.hidden {
-  display: none;
-}
+
 p {
   color: hsl(279, 6%, 55%);
   display: block;
   margin: 0px 130px;
 }
-.thank-page {
-  position: relative;
-  top: 20%;
-  left: 20%;
+.container3{
+  width: 680px;
+  display: flex;
+  justify-content: center;
 }
+
 .tick{
     margin: 100px 200px 30px;
 }
@@ -138,4 +145,51 @@ h1{
 }
 .error-class::-webkit-input-placeholder {
     color: hsl(0, 100%, 66%);
+}
+
+.container{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content:space-between;
+  z-index: 1;
+  align-items: center;
+}
+.container2{
+  width: 700px;
+  flex-shrink: 2;
+  display: flex;
+  justify-content: center;
+}
+.hidden {
+  display: none;
+}
+@media (max-width: 1000px) {
+  .container{
+    flex-wrap: wrap;
+  }
+  .container1{
+    padding-right: 50px;
+    flex-grow: 1;
+    justify-content: space-between;
+    height: 500px;
+    align-items: center;
+  }
+  .container2{
+    flex-grow: 1;
+  }
+  .container3{
+    flex-grow: 1;
+  }
+  .bg-img1{
+    display: none;
+  }
+  .bg-img2{
+    display: absolute;
+    z-index: -1;
+    height: 300px;
+    width: 100vw;
+    top: 0%;
+  }
+  
 }
