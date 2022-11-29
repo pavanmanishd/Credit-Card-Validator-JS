@@ -1,97 +1,111 @@
 var i = 0;
-var k = '';
-var t = 0;
+var numberInputString = '';
+var numberInputMaxLength = 0;
 
-document.querySelector(".number-input").addEventListener('keyup', function (e) {
-    t = Number(document.querySelector(".number-input").getAttribute("maxlength"));
-    t = t + 1;
-    t = t.toString();
+const numberInput = document.getElementById("numberInput");
+const numberOutput = document.querySelectorAll(".card-no");
+const nameInput = document.getElementById("nameInput");
+const nameOutput = document.querySelector(".cname");
+const monthInput = document.getElementById("monthInput");
+const yearInput = document.getElementById("yearInput");
+const monthOutput = document.querySelector(".month");
+const yearOutput = document.querySelector(".year");
+const cvcInput = document.querySelector(".cvc-input");
+const cvcOutput = document.querySelector(".cvc");
+
+
+numberInput.addEventListener('keyup', function (e) {
+    numberInputMaxLength = Number(numberInput.getAttribute("maxlength"));
+    numberInputMaxLength = numberInputMaxLength + 1;
+    numberInputMaxLength = numberInputMaxLength.toString();
     if (e.key === ' ') {
-        document.querySelector(".number-input").setAttribute("maxlength", t);
+        numberInput.setAttribute("maxlength", t);
     }
 });
-document.querySelector(".name-input").addEventListener('keyup', function () {
+nameInput.addEventListener('keyup', function () {
     console.log(this.value);
     this.value = this.value.toUpperCase();
-    document.querySelector(".cname").textContent = document.querySelector(".name-input").value;
+    nameOutput.textContent = nameInput.value;
     if (this.value.length === 0) {
-        document.querySelector(".cname").textContent = "PAVAN MANISH";
+        nameOutput.textContent = "PAVAN MANISH";
     }
 });
-document.querySelector(".number-input").addEventListener('keyup', function (e) {
+numberInput.addEventListener('keyup', function (e) {
     var regex = new RegExp("^[a-z0-9]+$");
     var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
-    if (regex.test(str) && k.length<16) {
-        k = k.concat(e.key);
-        for (let i = 1; i <= Math.ceil((k.length) / 4); i++) {
-            document.querySelectorAll(".card-no")[i - 1].textContent = k.slice(i * 4 - 4, i * 4);
+    if (regex.test(str) && numberInputString.length<16) {
+        numberInputString = numberInputString.concat(e.key);
+        for (let i = 1; i <= Math.ceil((numberInputString.length) / 4); i++) {
+            numberOutput[i - 1].textContent = numberInputString.slice(i * 4 - 4, i * 4);
         }
     }
     else if (e.key === 'Backspace') {
-        k = k.slice(0, -1);
+        numberInputString = numberInputString.slice(0, -1);
     }
     
     if (this.value.length === 0) {
-        document.querySelector(".card-no").textContent = "0000";
-        k='';
-    }
-    console.log("k"+k.length);
-});
-document.querySelectorAll(".date-input")[0].addEventListener('keyup', function () {
-    document.querySelector(".month").textContent = document.querySelectorAll(".date-input")[0].value;
-    if (this.value.length === 0) {
-        document.querySelector(".month").textContent = "00";
+        numberOutput[0].textContent = "0000";
+        numberOutput[1].textContent = "0000";
+        numberOutput[2].textContent = "0000";
+        numberOutput[3].textContent = "0000";
+        numberInputString='';
     }
 });
-document.querySelectorAll(".date-input")[1].addEventListener('keyup', function () {
-    document.querySelector(".year").textContent = document.querySelectorAll(".date-input")[1].value;
+monthInput.addEventListener('keyup', function () {
+    monthOutput.textContent = monthInput.value;
     if (this.value.length === 0) {
-        document.querySelector(".year").textContent = "00";
+        monthOutput.textContent = "00";
     }
 });
-document.querySelector(".cvc-input").addEventListener('keyup', function () {
-    document.querySelector(".cvc").textContent = document.querySelector(".cvc-input").value;
+yearInput.addEventListener('keyup', function () {
+    yearOutput.textContent = yearInput.value;
     if (this.value.length === 0) {
-        document.querySelector(".cvc").textContent = "000";
+        yearOutput.textContent = "00";
+    }
+});
+cvcInput.addEventListener('keyup', function () {
+    cvcOutput.textContent = cvcInput.value;
+    if (this.value.length === 0) {
+        cvcOutput.textContent = "000";
     }
 });
 document.querySelector(".button1").addEventListener('click', function () {
     var w = 0;
     
-    if(k.length<16){
-        document.querySelector('.number-input').classList.add("error-class");
+    if(numberInputString.length<16){
+        numberInput.classList.add("error-class");
     }
     else{
         w=w+1;
-        document.querySelector('.number-input').classList.remove("error-class");
+        numberInput.classList.remove("error-class");
     }
-    if(document.querySelector('.name-input').value === ''){
-        document.querySelector('.name-input').classList.add("error-class");
-    }
-    else{
-        w=w+1;
-        document.querySelector('.name-input').classList.remove("error-class");
-    }
-    if (document.querySelector('.cvc-input').value === '' || document.querySelector('.cvc-input').value.length !== 3) {
-        document.querySelector('.cvc-input').classList.add("error-class");
+    if(nameInput.value === ''){
+        nameInput.classList.add("error-class");
     }
     else{
         w=w+1;
-        document.querySelector('.cvc-input').classList.remove("error-class");
+        nameInput.classList.remove("error-class");
     }
-    if(document.querySelector('.d1').value === ''){
-        document.querySelector('.d1').classList.add("error-class");
-    }
-    else{
-        w=w+1;
-        document.querySelector('.d1').classList.remove("error-class");
-    }
-    if(document.querySelector('.d2').value === ''){
-        document.querySelector('.d2').classList.add("error-class");
+    if (cvcInput.value === '' || cvcInput.value.length !== 3) {
+        cvcInput.classList.add("error-class");
     }
     else{
         w=w+1;
-        document.querySelector('.d2').classList.remove("error-class");
+        cvcInput.classList.remove("error-class");
+    }
+    if(monthInput.value === ''){
+        monthInput.classList.add("error-class");
+    }
+    else{
+        w=w+1;
+        monthInput.classList.remove("error-class");
+    }
+    if(yearInput.value === ''){
+        yearInput.classList.add("error-class");
+    }
+    else{
+        w=w+1;
+        yearInput.classList.remove("error-class");
     }
     if(w === 5) {
         document.querySelector(".container2").classList.add("hidden");
