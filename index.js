@@ -22,6 +22,9 @@ numberInput.addEventListener('keyup', function (e) {
         numberInput.setAttribute("maxlength", t);
     }
 });
+
+
+
 nameInput.addEventListener('keyup', function () {
     console.log(this.value);
     this.value = this.value.toUpperCase();
@@ -30,6 +33,9 @@ nameInput.addEventListener('keyup', function () {
         nameOutput.textContent = "PAVAN MANISH";
     }
 });
+
+
+
 numberInput.addEventListener('keyup', function (e) {
     var regex = new RegExp("^[a-z0-9]+$");
     var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
@@ -39,10 +45,14 @@ numberInput.addEventListener('keyup', function (e) {
             numberOutput[i - 1].textContent = numberInputString.slice(i * 4 - 4, i * 4);
         }
     }
+
     else if (e.key === 'Backspace') {
         numberInputString = numberInputString.slice(0, -1);
     }
     
+
+
+
     if (this.value.length === 0) {
         numberOutput[0].textContent = "0000";
         numberOutput[1].textContent = "0000";
@@ -51,24 +61,34 @@ numberInput.addEventListener('keyup', function (e) {
         numberInputString='';
     }
 });
+
+
 monthInput.addEventListener('keyup', function () {
     monthOutput.textContent = monthInput.value;
     if (this.value.length === 0) {
         monthOutput.textContent = "00";
     }
 });
+
+
+
 yearInput.addEventListener('keyup', function () {
     yearOutput.textContent = yearInput.value;
     if (this.value.length === 0) {
         yearOutput.textContent = "00";
     }
 });
+
+
+
 cvcInput.addEventListener('keyup', function () {
     cvcOutput.textContent = cvcInput.value;
     if (this.value.length === 0) {
         cvcOutput.textContent = "000";
     }
 });
+
+
 document.querySelector(".button1").addEventListener('click', function () {
     var w = 0;
     
@@ -112,6 +132,8 @@ document.querySelector(".button1").addEventListener('click', function () {
         document.querySelector(".container3").classList.remove("hidden");
     }
 });
+
+
 document.querySelector(".button2").addEventListener('click', function () {
     document.querySelector(".container2").classList.remove("hidden");
     document.querySelector(".container3").classList.add("hidden");
